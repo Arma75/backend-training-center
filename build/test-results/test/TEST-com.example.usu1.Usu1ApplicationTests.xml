@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.usu1.Usu1ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-14T12:18:44.816Z" hostname="headui-MacBookAir.local" time="0.279">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.usu1.Usu1ApplicationTests" time="0.279"/>
+  <system-out><![CDATA[21:18:44.259 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.usu1.Usu1ApplicationTests]: Usu1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:18:44.295 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.usu1.Usu1Application for test class com.example.usu1.Usu1ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-14T21:18:44.449+09:00  INFO 46957 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Starting Usu1ApplicationTests using Java 17.0.15 with PID 46957 (started by head in /Users/head/Desktop/#QUEST1/백엔드 연습중/backend-training-center)
+2025-08-14T21:18:44.450+09:00  INFO 46957 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-08-14T21:18:44.811+09:00  INFO 46957 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Started Usu1ApplicationTests in 0.464 seconds (process running for 0.816)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
