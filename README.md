@@ -7,3 +7,4 @@ This is a repository for training the backend
 4. Add query string parameter passing and set default values for them
 5. Create RandomNumberDto and Change random API responses to JSON using RandomNumberDto
 6. Create TodoItemDto and Create a Post API that insert to-do item
+7. Add CrossOrigin option

@@ -21,6 +21,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @ResponseBody
+@CrossOrigin("*")
 public class TodoItemController {
     private static final Logger logger = LoggerFactory.getLogger(TodoItemController.class);
 
