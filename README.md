@@ -8,3 +8,4 @@ This is a repository for training the backend
 5. Create RandomNumberDto and Change random API responses to JSON using RandomNumberDto
 6. Create TodoItemDto and Create a Post API that insert to-do item
 7. Add CrossOrigin option
+8. (expect) Add service and dao
