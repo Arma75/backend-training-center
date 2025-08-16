@@ -11,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.usu1.dto.TodoItemDto;
+import com.example.usu1.mapper.TodoItemMapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -26,7 +28,7 @@ public class TodoItemController {
     private static final Logger logger = LoggerFactory.getLogger(TodoItemController.class);
 
     @Autowired
-    private DataSource dataSource;
+    private TodoItemMapper todoItemMapper;
 
     @PostMapping("/addTodoItem")
     public String addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
@@ -35,22 +37,10 @@ public class TodoItemController {
 
         logger.info("[API Call] IP: {}, Time: {}, Todo Content: {}", clientIp, now, todoItemDto.getContent());
 
-        Connection conn;
-        PreparedStatement pstmt;
-
         try {
-            String sql = "INSERT INTO todo_item (content) VALUES (?)";
-            conn = dataSource.getConnection();
-            pstmt = conn.prepareStatement(sql);
-
-            pstmt.setString(1, todoItemDto.getContent());
-            pstmt.executeUpdate();
-            pstmt.close();
-
-            conn.close();
-
+            todoItemMapper.insertTodoItem(todoItemDto);
             return "Todo item '" + todoItemDto.getContent() + "' added successfully to DB!";
-        } catch( SQLException e ) {
+        } catch( Exception e ) {
             logger.error("DB INSERT failed: {}", e.getMessage());
             e.printStackTrace();
             return "Error adding todo item: " + e.getMessage();

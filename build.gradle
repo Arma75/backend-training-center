@@ -18,11 +18,19 @@ repositories {
 }
 
 dependencies {
+	// 스프링 부트 웹 프로젝트
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// JDBC
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+	// H2 DATABASE
     runtimeOnly 'com.h2database:h2'
+
+    // MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 }
 
 tasks.named('test') {

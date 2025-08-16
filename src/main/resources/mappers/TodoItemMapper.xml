@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.usu1.mapper.TodoItemMapper">
+
+    <insert id="insertTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+        INSERT INTO todo_item (content) VALUES (#{content})
+    </insert>
+
+</mapper>
