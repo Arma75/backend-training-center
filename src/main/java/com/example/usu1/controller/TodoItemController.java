@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.usu1.dto.TodoItemDto;
 import com.example.usu1.mapper.TodoItemMapper;
+import com.example.usu1.service.TodoItemService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -28,7 +29,7 @@ public class TodoItemController {
     private static final Logger logger = LoggerFactory.getLogger(TodoItemController.class);
 
     @Autowired
-    private TodoItemMapper todoItemMapper;
+    private TodoItemService todoItemService;
 
     @PostMapping("/addTodoItem")
     public String addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
@@ -37,13 +38,6 @@ public class TodoItemController {
 
         logger.info("[API Call] IP: {}, Time: {}, Todo Content: {}", clientIp, now, todoItemDto.getContent());
 
-        try {
-            todoItemMapper.insertTodoItem(todoItemDto);
-            return "Todo item '" + todoItemDto.getContent() + "' added successfully to DB!";
-        } catch( Exception e ) {
-            logger.error("DB INSERT failed: {}", e.getMessage());
-            e.printStackTrace();
-            return "Error adding todo item: " + e.getMessage();
-        }
+        return todoItemService.addTodoItem(todoItemDto);
     }
 }
