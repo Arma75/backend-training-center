@@ -10,6 +10,8 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,12 +34,12 @@ public class TodoItemController {
     private TodoItemService todoItemService;
 
     @PostMapping("/addTodoItem")
-    public String addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+    public ResponseEntity<String> addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
         LocalDateTime now = LocalDateTime.now();
 
         logger.info("[API Call] IP: {}, Time: {}, Todo Content: {}", clientIp, now, todoItemDto.getContent());
 
-        return todoItemService.addTodoItem(todoItemDto);
+        return new ResponseEntity<String>(todoItemService.addTodoItem(todoItemDto), HttpStatus.CREATED);
     }
 }
