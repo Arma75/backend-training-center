@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS todo_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    content VARCHAR(255) NOT NULL
+    title VARCHAR(50) NOT NULL,
+    content VARCHAR(1000)
 );
