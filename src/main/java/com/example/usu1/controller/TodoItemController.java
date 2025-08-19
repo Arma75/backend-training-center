@@ -46,8 +46,8 @@ public class TodoItemController {
         }
 
         // 길이 검사
-        if( todoItemDto.getTitle().length() > 50 ) {
-            return new ResponseEntity<>("제목은 50자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
+        if( todoItemDto.getTitle().length() > 100 ) {
+            return new ResponseEntity<>("제목은 100자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
         }
         if( todoItemDto.getContent() != null && todoItemDto.getContent().length() > 1000 ) {
             return new ResponseEntity<>("내용은 1000자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
