@@ -1,6 +1,10 @@
 package com.example.usu1.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -13,7 +17,12 @@ public class TodoItemService {
     private TodoItemMapper todoItemMapper;
 
     public String addTodoItem(@RequestBody TodoItemDto todoItemDto) {
+        if( todoItemDto.getStartDt() == null ) {
+            todoItemDto.setStartDt(new Date());
+        }
+
         todoItemMapper.insertTodoItem(todoItemDto);
+
         return "OK";
     }
 }

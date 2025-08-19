@@ -6,9 +6,10 @@ public class TodoItemDto {
 	private long seq;
 	private String title;
 	private String content;
+	private boolean completed;
 	private Date startDt;
-	private Date regDt;
-	private Date modiDt;
+	private Date createDt;
+	private Date updateDt;
 	
 	public long getSeq() {
 		return this.seq;
@@ -41,19 +42,28 @@ public class TodoItemDto {
 	public void setStartDt(Date startDt) {
 		this.startDt = startDt;
 	}
-	
-	public Date getModiDt() {
-		return this.modiDt;
-	}
-	
-	public void setMiduDt(Date modiDt) {
-		this.modiDt = modiDt;
-	}
-	public Date getRegDt() {
-		return this.regDt;
-	}
-	
-	public void setRegtDt(Date regDt) {
-		this.regDt = regDt;
-	}
+
+    public boolean isCompleted() {
+        return this.completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public Date getCreateDt() {
+        return this.createDt;
+    }
+
+    public void setCreateDt(Date createDt) {
+        this.createDt = createDt;
+    }
+
+    public Date getUpdateDt() {
+        return this.updateDt;
+    }
+
+    public void setUpdateDt(Date updateDt) {
+        this.updateDt = updateDt;
+    }
 }

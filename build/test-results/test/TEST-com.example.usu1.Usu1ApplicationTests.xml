@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.usu1.Usu1ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-18T22:25:57.411Z" hostname="headui-MacBookAir.local" time="0.264">
+<testsuite name="com.example.usu1.Usu1ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-19T04:12:59.998Z" hostname="headui-MacBookAir.local" time="0.259">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.usu1.Usu1ApplicationTests" time="0.264"/>
-  <system-out><![CDATA[07:25:56.766 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.usu1.Usu1ApplicationTests]: Usu1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-07:25:56.798 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.usu1.Usu1Application for test class com.example.usu1.Usu1ApplicationTests
+  <testcase name="contextLoads()" classname="com.example.usu1.Usu1ApplicationTests" time="0.259"/>
+  <system-out><![CDATA[13:12:59.347 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.usu1.Usu1ApplicationTests]: Usu1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:12:59.380 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.usu1.Usu1Application for test class com.example.usu1.Usu1ApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,13 +14,13 @@
 
  :: Spring Boot ::                (v3.5.4)
 
-2025-08-19T07:25:56.923+09:00  INFO 95313 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Starting Usu1ApplicationTests using Java 17.0.15 with PID 95313 (started by head in /Users/head/Desktop/#QUEST1/백엔드 연습중/#1 backend-training/backend-training-center)
-2025-08-19T07:25:56.923+09:00  INFO 95313 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2025-08-19T07:25:57.167+09:00  INFO 95313 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-19T07:25:57.221+09:00  INFO 95313 --- [usu1] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-08-19T07:25:57.222+09:00  INFO 95313 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-19T07:25:57.384+09:00  INFO 95313 --- [usu1] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-08-19T07:25:57.407+09:00  INFO 95313 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Started Usu1ApplicationTests in 0.562 seconds (process running for 0.899)
+2025-08-19T13:12:59.502+09:00  INFO 99116 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Starting Usu1ApplicationTests using Java 17.0.15 with PID 99116 (started by head in /Users/head/Desktop/#QUEST1/백엔드 연습중/#1 backend-training/backend-training-center)
+2025-08-19T13:12:59.502+09:00  INFO 99116 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-08-19T13:12:59.750+09:00  INFO 99116 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-19T13:12:59.802+09:00  INFO 99116 --- [usu1] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-08-19T13:12:59.803+09:00  INFO 99116 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-19T13:12:59.971+09:00  INFO 99116 --- [usu1] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-08-19T13:12:59.994+09:00  INFO 99116 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Started Usu1ApplicationTests in 0.569 seconds (process running for 0.9)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

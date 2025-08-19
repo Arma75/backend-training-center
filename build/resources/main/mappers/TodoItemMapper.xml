@@ -3,7 +3,20 @@
 <mapper namespace="com.example.usu1.mapper.TodoItemMapper">
 
     <insert id="insertTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
-        INSERT INTO todo_item (title, content) VALUES (#{title}, #{content})
+        INSERT INTO todo_item (
+              title
+            , content
+            , is_completed
+            , start_dt
+            , create_dt
+        )
+        VALUES (
+              #{title}
+            , #{content}
+            , #{completed}
+            , #{startDt}
+            , #{createDt}
+        )
     </insert>
 
 </mapper>
