@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -32,6 +34,23 @@ public class TodoItemController {
 
     @Autowired
     private TodoItemService todoItemService;
+
+    @PostMapping("/selectList")
+    public ResponseEntity<List<TodoItemDto>> selectList(HttpServletRequest request) {
+        List<TodoItemDto> itemList = new ArrayList<>();
+
+        TodoItemDto itemDto = new TodoItemDto();
+        itemDto.setTitle("테스트1");
+        itemDto.setContent("테스트1입니다.");
+        itemList.add(itemDto);
+
+        itemDto = new TodoItemDto();
+        itemDto.setTitle("테스트2");
+        itemDto.setContent("테스트2입니다.");
+        itemList.add(itemDto);
+        
+        return new ResponseEntity<>(itemList, HttpStatus.BAD_REQUEST);
+    }
 
     @PostMapping("/addTodoItem")
     public ResponseEntity<String> addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
