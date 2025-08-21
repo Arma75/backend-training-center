@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.usu1.mapper.TodoItemMapper">
 
+    <select id="selectList" parameterType="com.example.usu1.dto.TodoItemDto">
+        SELECT * FROM todo_item
+    </select>
+
     <insert id="insertTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
         INSERT INTO todo_item (
               title
