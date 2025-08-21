@@ -37,19 +37,8 @@ public class TodoItemController {
 
     @PostMapping("/selectList")
     public ResponseEntity<List<TodoItemDto>> selectList(HttpServletRequest request) {
-        List<TodoItemDto> itemList = new ArrayList<>();
-
-        TodoItemDto itemDto = new TodoItemDto();
-        itemDto.setTitle("테스트1");
-        itemDto.setContent("테스트1입니다.");
-        itemList.add(itemDto);
-
-        itemDto = new TodoItemDto();
-        itemDto.setTitle("테스트2");
-        itemDto.setContent("테스트2입니다.");
-        itemList.add(itemDto);
         
-        return new ResponseEntity<>(itemList, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/addTodoItem")

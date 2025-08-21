@@ -1,6 +1,7 @@
 package com.example.usu1.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,13 @@ import com.example.usu1.mapper.TodoItemMapper;
 public class TodoItemService {
     @Autowired
     private TodoItemMapper todoItemMapper;
+
+    public List<TodoItemDto> selectList() {
+
+        List<TodoItemDto> itemList = todoItemMapper.selectList();
+
+        return itemList;
+    }
 
     public String addTodoItem(@RequestBody TodoItemDto todoItemDto) {
         if( todoItemDto.getStartDt() == null ) {
