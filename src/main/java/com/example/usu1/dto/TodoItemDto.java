@@ -3,7 +3,7 @@ package com.example.usu1.dto;
 import java.util.Date;
 
 public class TodoItemDto {
-	private long seq;
+	private Long seq;
 	private String title;
 	private String content;
 	private boolean completed;
@@ -11,11 +11,11 @@ public class TodoItemDto {
 	private Date createDt;
 	private Date updateDt;
 	
-	public long getSeq() {
+	public Long getSeq() {
 		return this.seq;
 	}
 	
-	public void setSeq(long seq) {
+	public void setSeq(Long seq) {
 		this.seq = seq;
 	}
 	

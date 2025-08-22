@@ -41,6 +41,28 @@ public class TodoItemController {
         return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.BAD_REQUEST);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+        String clientIp = request.getRemoteAddr();
+        LocalDateTime now = LocalDateTime.now();
+
+        logger.info("[API Call] IP: {}, Time: {}", clientIp, now);
+        
+        // 필수값 검사
+        if( todoItemDto.getSeq() == null ) {
+            return new ResponseEntity<>("아이템 ID는 필수 입력 항목입니다.", HttpStatus.BAD_REQUEST);
+        }
+
+        int deleteCount = todoItemService.deleteTodoItem(todoItemDto);
+        logger.info("deleteCount: {}", deleteCount);
+
+        if( deleteCount > 0 ) {
+            return new ResponseEntity<String>("삭제를 완료했습니다.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("실패했습니다.", HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping("/addTodoItem")
     public ResponseEntity<String> addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
