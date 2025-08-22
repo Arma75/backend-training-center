@@ -14,5 +14,7 @@ public interface TodoItemMapper {
 
     int deleteTodoItem(TodoItemDto todoItemDto);
 
+    int updateTodoItem(TodoItemDto todoItemDto);
+
     
 }
