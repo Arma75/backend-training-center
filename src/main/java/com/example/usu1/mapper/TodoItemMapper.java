@@ -11,4 +11,8 @@ public interface TodoItemMapper {
     List<TodoItemDto> selectList();
 
     void insertTodoItem(TodoItemDto todoItemDto);
+
+    int deleteTodoItem(TodoItemDto todoItemDto);
+
+    
 }

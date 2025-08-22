@@ -24,6 +24,10 @@ public class TodoItemService {
         return itemList;
     }
 
+    public int deleteTodoItem(TodoItemDto todoItemDto) {
+        return todoItemMapper.deleteTodoItem(todoItemDto);
+    }
+
     public String addTodoItem(@RequestBody TodoItemDto todoItemDto) {
         if( todoItemDto.getStartDt() == null ) {
             todoItemDto.setStartDt(new Date());
