@@ -6,11 +6,21 @@
         SELECT * FROM todo_item
     </select>
 
-    <insert id="deleteTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+    <update id="updateTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+        update todo_item
+           set title = #{title}
+             , content = #{content}
+             , is_completed = #{completed}
+             , start_dt = #{startDt}
+             , update_dt = NOW()
+         where seq = #{seq}
+    </update>
+
+    <delete id="deleteTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
         delete
           from todo_item
          where seq = #{seq}
-    </insert>
+    </delete>
 
     <insert id="insertTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
         INSERT INTO todo_item (

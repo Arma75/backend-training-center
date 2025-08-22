@@ -28,6 +28,10 @@ public class TodoItemService {
         return todoItemMapper.deleteTodoItem(todoItemDto);
     }
 
+    public int updateTodoItem(TodoItemDto todoItemDto) {
+        return todoItemMapper.updateTodoItem(todoItemDto);
+    }
+
     public String addTodoItem(@RequestBody TodoItemDto todoItemDto) {
         if( todoItemDto.getStartDt() == null ) {
             todoItemDto.setStartDt(new Date());
