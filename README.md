@@ -9,3 +9,11 @@ This is a repository for training the backend
 6. Create TodoItemDto and Create a Post API that insert to-do item
 7. Add CrossOrigin option
 8. Apply Mybatis
+
+# 기능
+- 목록 조희 : 페이징 기능 필요
+- 상세 조회
+- 신규 추가
+- 수정
+- 다건 삭제
+- 단건 삭제
