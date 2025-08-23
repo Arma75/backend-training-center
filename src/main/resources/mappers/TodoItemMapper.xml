@@ -6,6 +6,12 @@
         SELECT * FROM todo_item
     </select>
 
+    <select id="selectTodoItem" parameterType="com.example.usu1.dto.TodoItemDto" resultType="com.example.usu1.dto.TodoItemDto">
+        select *
+          from todo_item
+         where seq = #{seq}
+    </select>
+
     <update id="updateTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
         update todo_item
            set title = #{title}

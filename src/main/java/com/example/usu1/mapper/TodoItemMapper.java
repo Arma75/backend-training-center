@@ -9,6 +9,7 @@ import com.example.usu1.dto.TodoItemDto;
 @Mapper
 public interface TodoItemMapper {
     List<TodoItemDto> selectList();
+    TodoItemDto selectTodoItem(TodoItemDto todoItemDto);
 
     void insertTodoItem(TodoItemDto todoItemDto);
 

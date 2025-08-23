@@ -41,6 +41,12 @@ public class TodoItemController {
         return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.OK);
     }
 
+    @PostMapping("/selectTodoItem")
+    public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+        
+        return new ResponseEntity<>(todoItemService.selectTodoItem(todoItemDto), HttpStatus.OK);
+    }
+
     @PostMapping("/delete")
     public ResponseEntity<String> deleteTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
