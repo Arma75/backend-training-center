@@ -2,6 +2,9 @@ package com.example.usu1.dto;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("TodoItemDto")
 public class TodoItemDto {
 	private Long seq;
 	private String title;
