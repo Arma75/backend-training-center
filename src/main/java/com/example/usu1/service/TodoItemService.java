@@ -24,6 +24,10 @@ public class TodoItemService {
         return itemList;
     }
 
+    public TodoItemDto selectTodoItem(TodoItemDto todoItemDto) {
+        return todoItemMapper.selectTodoItem(todoItemDto);
+    }
+
     public int deleteTodoItem(TodoItemDto todoItemDto) {
         return todoItemMapper.deleteTodoItem(todoItemDto);
     }
