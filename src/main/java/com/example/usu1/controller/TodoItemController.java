@@ -38,7 +38,7 @@ public class TodoItemController {
     @PostMapping("/selectList")
     public ResponseEntity<List<TodoItemDto>> selectList(HttpServletRequest request) {
         
-        return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.OK);
     }
 
     @PostMapping("/delete")
