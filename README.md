@@ -12,7 +12,7 @@ This is a repository for training the backend
 
 # 기능
 - 목록 조희 : 페이징 기능 필요
-- 상세 조회
+- 상세 조회 : 인자 밸리데이션 필요
 - 신규 추가
 - 수정
 - 다건 삭제
