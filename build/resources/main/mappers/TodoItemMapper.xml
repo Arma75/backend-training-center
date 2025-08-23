@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.usu1.mapper.TodoItemMapper">
 
-    <select id="selectList" resultType="com.example.usu1.dto.TodoItemDto">
+    <select id="selectList" resultType="TodoItemDto">
         SELECT * FROM todo_item
     </select>
 
-    <select id="selectTodoItem" parameterType="com.example.usu1.dto.TodoItemDto" resultType="com.example.usu1.dto.TodoItemDto">
+    <select id="selectTodoItem" parameterType="TodoItemDto" resultType="TodoItemDto">
         select *
           from todo_item
          where seq = #{seq}
     </select>
 
-    <update id="updateTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+    <update id="updateTodoItem" parameterType="TodoItemDto">
         update todo_item
            set title = #{title}
              , content = #{content}
@@ -22,13 +22,13 @@
          where seq = #{seq}
     </update>
 
-    <delete id="deleteTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+    <delete id="deleteTodoItem" parameterType="TodoItemDto">
         delete
           from todo_item
          where seq = #{seq}
     </delete>
 
-    <insert id="insertTodoItem" parameterType="com.example.usu1.dto.TodoItemDto">
+    <insert id="insertTodoItem" parameterType="TodoItemDto">
         INSERT INTO todo_item (
               title
             , content
