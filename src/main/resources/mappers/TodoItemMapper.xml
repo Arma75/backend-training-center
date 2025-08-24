@@ -14,7 +14,7 @@
 
     <update id="updateTodoItem" parameterType="TodoItemDto">
         update todo_item
-          <set>
+           set update_dt = NOW()
             <if test='title != null and title != ""'>
              , title = #{title}
             </if>
@@ -27,8 +27,6 @@
             <if test='startDt != null and startDt != ""'>
              , start_dt = #{startDt}
             </if>
-             , update_dt = NOW()
-          </set>
          where seq = #{seq}
     </update>
 
