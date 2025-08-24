@@ -13,7 +13,7 @@ This is a repository for training the backend
 # 기능
 - 목록 조희 : 페이징 기능 필요
 - 상세 조회 : 인자 밸리데이션 필요
-- 신규 추가
+- 신규 추가 : 성공 여부에 따른 반환 데이터 지정 필요
 - 수정
 - 다건 삭제
 - 단건 삭제
