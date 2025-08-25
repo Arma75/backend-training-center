@@ -93,7 +93,14 @@ public class TodoItemController {
             return new ResponseEntity<>("내용은 1000자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<String>(todoItemService.addTodoItem(todoItemDto), HttpStatus.OK);
+        int addCount = todoItemService.addTodoItem(todoItemDto);
+        logger.info("addCount: {}", addCount);
+
+        if( addCount > 0 ) {
+            return new ResponseEntity<String>("추가를 완료했습니다.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("실패했습니다.", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/updateTodoItem")
