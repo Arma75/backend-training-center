@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.usu1.dto.TodoItemDto;
@@ -43,7 +44,9 @@ public class TodoItemController {
     }
 
     @GetMapping("/selectTodoItem")
-    public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+    public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestParam Long seq) {
+        TodoItemDto todoItemDto = new TodoItemDto();
+        todoItemDto.setSeq(seq);
         
         return new ResponseEntity<>(todoItemService.selectTodoItem(todoItemDto), HttpStatus.OK);
     }
