@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.usu1.Usu1ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-23T15:29:16.253Z" hostname="headui-MacBookAir.local" time="0.407">
+<testsuite name="com.example.usu1.Usu1ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-25T12:14:44.262Z" hostname="headui-MacBookAir.local" time="0.418">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.usu1.Usu1ApplicationTests" time="0.407"/>
-  <system-out><![CDATA[00:29:15.118 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.usu1.Usu1ApplicationTests]: Usu1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:29:15.180 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.usu1.Usu1Application for test class com.example.usu1.Usu1ApplicationTests
+  <testcase name="contextLoads()" classname="com.example.usu1.Usu1ApplicationTests" time="0.418"/>
+  <system-out><![CDATA[21:14:43.056 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.usu1.Usu1ApplicationTests]: Usu1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:14:43.118 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.usu1.Usu1Application for test class com.example.usu1.Usu1ApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,12 +14,12 @@
 
  :: Spring Boot ::                (v3.5.4)
 
-2025-08-24T00:29:15.409+09:00  INFO 59601 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Starting Usu1ApplicationTests using Java 17.0.15 with PID 59601 (started by head in /Users/head/Desktop/#QUEST1/백엔드 연습중/#1 backend-training/backend-training-center)
-2025-08-24T00:29:15.410+09:00  INFO 59601 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2025-08-24T00:29:15.857+09:00  INFO 59601 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-24T00:29:15.912+09:00  INFO 59601 --- [usu1] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30db5536
-2025-08-24T00:29:15.913+09:00  INFO 59601 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-24T00:29:16.244+09:00  INFO 59601 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Started Usu1ApplicationTests in 0.98 seconds (process running for 1.616)
+2025-08-25T21:14:43.357+09:00  INFO 80567 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Starting Usu1ApplicationTests using Java 17.0.15 with PID 80567 (started by head in /Users/head/Desktop/#QUEST1/백엔드 연습중/#1 backend-training/backend-training-center)
+2025-08-25T21:14:43.358+09:00  INFO 80567 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-08-25T21:14:43.824+09:00  INFO 80567 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-25T21:14:43.878+09:00  INFO 80567 --- [usu1] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1f43cab7
+2025-08-25T21:14:43.879+09:00  INFO 80567 --- [usu1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-25T21:14:44.255+09:00  INFO 80567 --- [usu1] [    Test worker] com.example.usu1.Usu1ApplicationTests    : Started Usu1ApplicationTests in 1.054 seconds (process running for 1.703)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

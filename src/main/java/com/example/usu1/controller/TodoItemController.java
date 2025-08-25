@@ -16,8 +16,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.usu1.dto.TodoItemDto;
@@ -35,14 +37,16 @@ public class TodoItemController {
     @Autowired
     private TodoItemService todoItemService;
 
-    @PostMapping("/selectList")
+    @GetMapping("/selectList")
     public ResponseEntity<List<TodoItemDto>> selectList(HttpServletRequest request) {
         
         return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.OK);
     }
 
-    @PostMapping("/selectTodoItem")
-    public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+    @GetMapping("/selectTodoItem")
+    public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestParam Long seq) {
+        TodoItemDto todoItemDto = new TodoItemDto();
+        todoItemDto.setSeq(seq);
         
         return new ResponseEntity<>(todoItemService.selectTodoItem(todoItemDto), HttpStatus.OK);
     }

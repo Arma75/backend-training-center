@@ -14,11 +14,19 @@
 
     <update id="updateTodoItem" parameterType="TodoItemDto">
         update todo_item
-           set title = #{title}
+           set updateDt = NOW()
+            <if test='title != null and title != ""'>
+             , title = #{title}
+            </if>
+            <if test='content != null and content != ""'>
              , content = #{content}
-             , is_completed = #{completed}
-             , start_dt = #{startDt}
-             , update_dt = NOW()
+            </if>
+            <if test='completed != null and completed != ""'>
+             , completed = #{completed}
+            </if>
+            <if test='startDt != null and startDt != ""'>
+             , startDt = #{startDt}
+            </if>
          where seq = #{seq}
     </update>
 
@@ -32,16 +40,16 @@
         INSERT INTO todo_item (
               title
             , content
-            , is_completed
-            , start_dt
-            , create_dt
+            , completed
+            , startDt
+            , createDt
         )
         VALUES (
               #{title}
             , #{content}
             , #{completed}
             , #{startDt}
-            , #{createDt}
+            , NOW()
         )
     </insert>
 
