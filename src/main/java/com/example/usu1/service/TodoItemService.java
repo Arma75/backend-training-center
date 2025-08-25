@@ -36,13 +36,7 @@ public class TodoItemService {
         return todoItemMapper.updateTodoItem(todoItemDto);
     }
 
-    public String addTodoItem(@RequestBody TodoItemDto todoItemDto) {
-        if( todoItemDto.getStartDt() == null ) {
-            todoItemDto.setStartDt(new Date());
-        }
-
-        todoItemMapper.insertTodoItem(todoItemDto);
-
-        return "OK";
+    public int addTodoItem(TodoItemDto todoItemDto) {
+        return todoItemMapper.insertTodoItem(todoItemDto);
     }
 }
