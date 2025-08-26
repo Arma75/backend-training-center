@@ -13,6 +13,29 @@ public class TodoItemDto {
 	private Date startDt;
 	private Date createDt;
 	private Date updateDt;
+
+	private int page;
+	private int size;
+	private int offset;
+
+	public int getPage() {
+		return this.page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	public int getSize() {
+		return this.size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public int getOffset() {
+		return this.offset;
+	}
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
 	
 	public Long getSeq() {
 		return this.seq;
