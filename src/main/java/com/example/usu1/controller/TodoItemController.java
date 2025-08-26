@@ -38,9 +38,16 @@ public class TodoItemController {
     private TodoItemService todoItemService;
 
     @GetMapping("/selectList")
-    public ResponseEntity<List<TodoItemDto>> selectList(HttpServletRequest request) {
-        
-        return new ResponseEntity<>(todoItemService.selectList(), HttpStatus.OK);
+    public ResponseEntity<List<TodoItemDto>> selectList(
+        HttpServletRequest request,
+        @RequestParam(defaultValue = "1") int page,
+        @RequestParam(defaultValue = "10") int size
+    ) {
+        TodoItemDto todoItemDto = new TodoItemDto();
+        todoItemDto.setPage(page);
+        todoItemDto.setSize(size);
+
+        return new ResponseEntity<>(todoItemService.selectList(todoItemDto), HttpStatus.OK);
     }
 
     @GetMapping("/selectTodoItem")

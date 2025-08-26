@@ -3,7 +3,11 @@
 <mapper namespace="com.example.usu1.mapper.TodoItemMapper">
 
     <select id="selectList" resultType="TodoItemDto">
-        SELECT * FROM todo_item
+        SELECT *
+          FROM todo_item
+         ORDER BY seq DESC
+         LIMIT #{size}
+        OFFSET #{offset}
     </select>
 
     <select id="selectTodoItem" parameterType="TodoItemDto" resultType="TodoItemDto">

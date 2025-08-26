@@ -17,9 +17,11 @@ public class TodoItemService {
     @Autowired
     private TodoItemMapper todoItemMapper;
 
-    public List<TodoItemDto> selectList() {
+    public List<TodoItemDto> selectList(TodoItemDto todoItemDto) {
+        int offset = (todoItemDto.getPage() <= 0? 0 : (todoItemDto.getPage() - 1)) * todoItemDto.getSize();
+        todoItemDto.setOffset(offset);
 
-        List<TodoItemDto> itemList = todoItemMapper.selectList();
+        List<TodoItemDto> itemList = todoItemMapper.selectList(todoItemDto);
 
         return itemList;
     }
