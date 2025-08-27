@@ -1,6 +1,7 @@
 package com.example.usu1.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
@@ -14,9 +15,28 @@ public class TodoItemDto {
 	private Date createDt;
 	private Date updateDt;
 
+	// 페이징 처리를 위한 parameters
 	private int page;
 	private int size;
 	private int offset;
+
+	// 정렬 처리를 위한 parameters
+    private String sort;
+    private List<String> sortList;
+
+    public String getSort() {
+        return this.sort;
+    }
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+    public List<String> getSortList() {
+        return this.sortList;
+    }
+    public void setSortList(List<String> sortList) {
+        this.sortList = sortList;
+    }
 
 	public int getPage() {
 		return this.page;

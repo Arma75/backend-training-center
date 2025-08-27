@@ -41,11 +41,13 @@ public class TodoItemController {
     public ResponseEntity<List<TodoItemDto>> selectList(
         HttpServletRequest request,
         @RequestParam(defaultValue = "1") int page,
-        @RequestParam(defaultValue = "10") int size
+        @RequestParam(defaultValue = "10") int size,
+        @RequestParam(defaultValue = "") String sort
     ) {
         TodoItemDto todoItemDto = new TodoItemDto();
         todoItemDto.setPage(page);
         todoItemDto.setSize(size);
+        todoItemDto.setSort(sort);
 
         return new ResponseEntity<>(todoItemService.selectList(todoItemDto), HttpStatus.OK);
     }

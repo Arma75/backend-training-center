@@ -1,7 +1,9 @@
 package com.example.usu1.service;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,13 @@ public class TodoItemService {
     public List<TodoItemDto> selectList(TodoItemDto todoItemDto) {
         int offset = (todoItemDto.getPage() <= 0? 0 : (todoItemDto.getPage() - 1)) * todoItemDto.getSize();
         todoItemDto.setOffset(offset);
+        if (todoItemDto.getSort() != null && !todoItemDto.getSort().isEmpty()) {
+            List<String> sortList = Arrays.asList(todoItemDto.getSort().split(","))
+                                         .stream()
+                                         .map(String::trim)
+                                         .collect(Collectors.toList());
+            todoItemDto.setSortList(sortList);
+        }
 
         List<TodoItemDto> itemList = todoItemMapper.selectList(todoItemDto);
 

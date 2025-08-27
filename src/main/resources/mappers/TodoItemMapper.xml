@@ -5,7 +5,38 @@
     <select id="selectList" resultType="TodoItemDto">
         SELECT *
           FROM todo_item
-         ORDER BY seq DESC
+        <choose>
+            <when test="sortList != null and !sortList.isEmpty()">
+                ORDER BY
+                <foreach collection="sortList" item="sortItem" separator=",">
+                    <if test="sortItem.startsWith('-')">
+                        <choose>
+                            <when test="sortItem.substring(1) == 'seq'">seq</when>
+                            <when test="sortItem.substring(1) == 'title'">title</when>
+                            <when test="sortItem.substring(1) == 'content'">content</when>
+                            <when test="sortItem.substring(1) == 'startDt'">startDt</when>
+                            <when test="sortItem.substring(1) == 'createDt'">createDt</when>
+                            <when test="sortItem.substring(1) == 'updateDt'">updateDt</when>
+                        </choose>
+                        DESC
+                    </if>
+                    <if test="!sortItem.startsWith('-')">
+                        <choose>
+                            <when test="sortItem == 'seq'">seq</when>
+                            <when test="sortItem == 'title'">title</when>
+                            <when test="sortItem == 'content'">content</when>
+                            <when test="sortItem == 'startDt'">startDt</when>
+                            <when test="sortItem == 'createDt'">createDt</when>
+                            <when test="sortItem == 'updateDt'">updateDt</when>
+                        </choose>
+                        ASC
+                    </if>
+                </foreach>
+            </when>
+            <otherwise>
+                ORDER BY seq DESC
+            </otherwise>
+        </choose>
          LIMIT #{size}
         OFFSET #{offset}
     </select>
