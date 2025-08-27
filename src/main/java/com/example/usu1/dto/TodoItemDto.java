@@ -10,10 +10,13 @@ public class TodoItemDto {
 	private Long seq;
 	private String title;
 	private String content;
-	private boolean completed;
+	private Boolean completed;
 	private Date startDt;
 	private Date createDt;
 	private Date updateDt;
+
+	private Date startFromDt;
+	private Date startToDt;
 
 	// 페이징 처리를 위한 parameters
 	private int page;
@@ -23,6 +26,22 @@ public class TodoItemDto {
 	// 정렬 처리를 위한 parameters
     private String sort;
     private List<String> sortList;
+
+	public Date getStartFromDt() {
+		return this.startFromDt;
+	}
+	
+	public void setStartFromDt(Date startFromDt) {
+		this.startFromDt = startFromDt;
+	}
+
+	public Date getStartToDt() {
+		return this.startToDt;
+	}
+	
+	public void setStartToDt(Date startToDt) {
+		this.startToDt = startToDt;
+	}
 
     public String getSort() {
         return this.sort;
@@ -89,11 +108,11 @@ public class TodoItemDto {
 		this.startDt = startDt;
 	}
 
-    public boolean isCompleted() {
+    public Boolean isCompleted() {
         return this.completed;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
 

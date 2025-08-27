@@ -5,6 +5,23 @@
     <select id="selectList" resultType="TodoItemDto">
         SELECT *
           FROM todo_item
+        <where>
+            <if test="title != null and !title.isEmpty()">
+                AND title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="content != null and !content.isEmpty()">
+                AND content LIKE CONCAT('%', #{content}, '%')
+            </if>
+            <if test="completed != null">
+                AND completed = #{completed}
+            </if>
+            <if test="startFromDt != null">
+                AND startDt &gt;= #{startFromDt}
+            </if>
+            <if test="startToDt != null">
+                AND startDt &lt;= #{startToDt}
+            </if>
+        </where>
         <choose>
             <when test="sortList != null and !sortList.isEmpty()">
                 ORDER BY
