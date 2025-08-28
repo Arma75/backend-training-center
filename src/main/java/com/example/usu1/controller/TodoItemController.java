@@ -3,6 +3,7 @@ package com.example.usu1.controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -67,12 +68,16 @@ public class TodoItemController {
             }
 
             return new ResponseEntity<>(todoItemService.selectList(todoItemDto), HttpStatus.OK);
-        } catch( Exception e ) {
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (ParseException e) {
+            e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    @GetMapping("/selectTodoItem")
+    @GetMapping("/view")
     public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestParam Long seq) {
         TodoItemDto todoItemDto = new TodoItemDto();
         todoItemDto.setSeq(seq);
@@ -102,7 +107,7 @@ public class TodoItemController {
         }
     }
 
-    @PostMapping("/addTodoItem")
+    @PostMapping("/insert")
     public ResponseEntity<String> addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
         LocalDateTime now = LocalDateTime.now();
@@ -132,7 +137,7 @@ public class TodoItemController {
         }
     }
 
-    @PostMapping("/updateTodoItem")
+    @PostMapping("/update")
     public ResponseEntity<String> updateTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
         LocalDateTime now = LocalDateTime.now();
