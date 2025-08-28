@@ -20,6 +20,12 @@ public class TodoItemService {
     private TodoItemMapper todoItemMapper;
 
     public List<TodoItemDto> selectList(TodoItemDto todoItemDto) {
+        if (todoItemDto.getStartFromDt() != null && todoItemDto.getStartToDt() != null) {
+            if (todoItemDto.getStartFromDt().after(todoItemDto.getStartToDt())) {
+                throw new IllegalArgumentException("startToDt는 startFromDt보다 이전 날짜일 수 없습니다.");
+            }
+        }
+
         int offset = (todoItemDto.getPage() <= 0? 0 : (todoItemDto.getPage() - 1)) * todoItemDto.getSize();
         todoItemDto.setOffset(offset);
         if (todoItemDto.getSort() != null && !todoItemDto.getSort().isEmpty()) {

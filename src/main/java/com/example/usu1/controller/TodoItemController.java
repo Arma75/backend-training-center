@@ -3,8 +3,10 @@ package com.example.usu1.controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -38,18 +40,36 @@ public class TodoItemController {
     private TodoItemService todoItemService;
 
     @GetMapping("/selectList")
-    public ResponseEntity<List<TodoItemDto>> selectList(
+    public ResponseEntity<?> selectList(
         HttpServletRequest request,
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "10") int size,
-        @RequestParam(defaultValue = "") String sort
+        @RequestParam(required = false) String sort,
+        @RequestParam(required = false) String title,
+        @RequestParam(required = false) String content,
+        @RequestParam(required = false) Boolean completed,
+        @RequestParam(required = false) String startFromDt,
+        @RequestParam(required = false) String startToDt
     ) {
-        TodoItemDto todoItemDto = new TodoItemDto();
-        todoItemDto.setPage(page);
-        todoItemDto.setSize(size);
-        todoItemDto.setSort(sort);
+        try {
+            TodoItemDto todoItemDto = new TodoItemDto();
+            todoItemDto.setPage(page);
+            todoItemDto.setSize(size);
+            todoItemDto.setSort(sort);
+            todoItemDto.setTitle(title);
+            todoItemDto.setContent(content);
+            todoItemDto.setCompleted(completed);
+            if( startFromDt != null ) {
+                todoItemDto.setStartFromDt(new SimpleDateFormat("yyyyMMdd").parse(startFromDt));
+            }
+            if( startToDt != null ) {
+                todoItemDto.setStartToDt(new SimpleDateFormat("yyyyMMdd").parse(startToDt));
+            }
 
-        return new ResponseEntity<>(todoItemService.selectList(todoItemDto), HttpStatus.OK);
+            return new ResponseEntity<>(todoItemService.selectList(todoItemDto), HttpStatus.OK);
+        } catch( Exception e ) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/selectTodoItem")
