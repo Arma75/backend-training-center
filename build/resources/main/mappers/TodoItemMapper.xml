@@ -64,22 +64,24 @@
          where seq = #{seq}
     </select>
 
-    <update id="updateTodoItem" parameterType="TodoItemDto">
-        update todo_item
-           set updateDt = NOW()
-            <if test='title != null and title != ""'>
-             , title = #{title}
+    <update id="updateTodoItem" parameterType="list">
+        <foreach collection="list" item="item" separator=";">
+            UPDATE todo_item
+            SET updateDt = NOW()
+            <if test='item.title != null and item.title != ""'>
+                , title = #{item.title}
             </if>
-            <if test='content != null and content != ""'>
-             , content = #{content}
+            <if test='item.content != null and item.content != ""'>
+                , content = #{item.content}
             </if>
-            <if test='completed != null and completed != ""'>
-             , completed = #{completed}
+            <if test='item.completed != null'>
+                , completed = #{item.completed}
             </if>
-            <if test='startDt != null and startDt != ""'>
-             , startDt = #{startDt}
+            <if test='item.startDt != null'>
+                , startDt = #{item.startDt}
             </if>
-         where seq = #{seq}
+            WHERE seq = #{item.seq}
+        </foreach>
     </update>
 
     <delete id="deleteTodoItem" parameterType="TodoItemDto">
