@@ -91,9 +91,10 @@ public class TodoItemController {
         LocalDateTime now = LocalDateTime.now();
 
         logger.info("[API Call] IP: {}, Time: {}", clientIp, now);
+        logger.info("todoItemDto.getSeqList(): {}", todoItemDto.getSeqList());
         
         // 필수값 검사
-        if( todoItemDto.getSeq() == null ) {
+        if( todoItemDto.getSeq() == null && (todoItemDto.getSeqList() == null || todoItemDto.getSeqList().isEmpty()) ) {
             return new ResponseEntity<>("아이템 ID는 필수 입력 항목입니다.", HttpStatus.BAD_REQUEST);
         }
 

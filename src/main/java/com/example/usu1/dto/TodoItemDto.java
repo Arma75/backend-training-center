@@ -7,6 +7,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("TodoItemDto")
 public class TodoItemDto {
+	private List<Long> seqList;
 	private Long seq;
 	private String title;
 	private String content;
@@ -26,6 +27,14 @@ public class TodoItemDto {
 	// 정렬 처리를 위한 parameters
     private String sort;
     private List<String> sortList;
+
+	public List<Long> getSeqList() {
+		return this.seqList;
+	}
+
+	public void setSeqList(List<Long> seqList) {
+		this.seqList = seqList;
+	}
 
 	public Date getStartFromDt() {
 		return this.startFromDt;

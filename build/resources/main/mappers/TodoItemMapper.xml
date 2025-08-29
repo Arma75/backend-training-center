@@ -85,7 +85,10 @@
     <delete id="deleteTodoItem" parameterType="TodoItemDto">
         delete
           from todo_item
-         where seq = #{seq}
+        WHERE seq IN
+        <foreach item="seq" collection="seqList" open="(" separator="," close=")">
+            #{seq}
+        </foreach>
     </delete>
 
     <insert id="insertTodoItem" parameterType="TodoItemDto">

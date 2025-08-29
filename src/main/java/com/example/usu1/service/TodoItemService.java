@@ -1,5 +1,6 @@
 package com.example.usu1.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -46,6 +47,13 @@ public class TodoItemService {
     }
 
     public int deleteTodoItem(TodoItemDto todoItemDto) {
+        if( todoItemDto.getSeqList() == null ) {
+            todoItemDto.setSeqList(new ArrayList<Long>());
+        }
+        if( todoItemDto.getSeq() != null ) {
+            todoItemDto.getSeqList().add(todoItemDto.getSeq());
+        }
+
         return todoItemMapper.deleteTodoItem(todoItemDto);
     }
 
