@@ -139,26 +139,36 @@ public class TodoItemController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> updateTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
+    public ResponseEntity<String> updateTodoItem(HttpServletRequest request, @RequestBody List<TodoItemDto> todoItemDtoList) {
         String clientIp = request.getRemoteAddr();
         LocalDateTime now = LocalDateTime.now();
 
         logger.info("[API Call] IP: {}, Time: {}", clientIp, now);
-        
+
         // 필수값 검사
-        if( todoItemDto.getTitle() == null || todoItemDto.getTitle().trim().isEmpty() ) {
-            return new ResponseEntity<>("제목은 필수 입력 항목입니다.", HttpStatus.BAD_REQUEST);
+        if( todoItemDtoList == null || todoItemDtoList.isEmpty() ) {
+            return new ResponseEntity<>("업데이트할 아이템 목록이 비어 있습니다.", HttpStatus.BAD_REQUEST);
         }
 
-        // 길이 검사
-        if( todoItemDto.getTitle().length() > 100 ) {
-            return new ResponseEntity<>("제목은 100자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
-        }
-        if( todoItemDto.getContent() != null && todoItemDto.getContent().length() > 1000 ) {
-            return new ResponseEntity<>("내용은 1000자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
+        for( TodoItemDto todoItemDto : todoItemDtoList ) {
+            // 필수값 검사
+            if( todoItemDto.getSeq() == null ) {
+                return new ResponseEntity<>("Seq 값은 필수입니다.", HttpStatus.BAD_REQUEST);
+            }
+            if( todoItemDto.getTitle() == null || todoItemDto.getTitle().trim().isEmpty() ) {
+                return new ResponseEntity<>("제목은 필수 입력 항목입니다.", HttpStatus.BAD_REQUEST);
+            }
+
+            // 길이 검사
+            if( todoItemDto.getTitle().length() > 100 ) {
+                return new ResponseEntity<>("제목은 100자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
+            }
+            if( todoItemDto.getContent() != null && todoItemDto.getContent().length() > 1000 ) {
+                return new ResponseEntity<>("내용은 1000자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST);
+            }
         }
 
-        int updateCount = todoItemService.updateTodoItem(todoItemDto);
+        int updateCount = todoItemService.updateTodoItem(todoItemDtoList);
         logger.info("updateCount: {}", updateCount);
 
         if( updateCount > 0 ) {

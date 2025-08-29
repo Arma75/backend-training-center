@@ -57,8 +57,8 @@ public class TodoItemService {
         return todoItemMapper.deleteTodoItem(todoItemDto);
     }
 
-    public int updateTodoItem(TodoItemDto todoItemDto) {
-        return todoItemMapper.updateTodoItem(todoItemDto);
+    public int updateTodoItem(List<TodoItemDto> todoItemDtoList) {
+        return todoItemMapper.updateTodoItem(todoItemDtoList);
     }
 
     public int addTodoItem(TodoItemDto todoItemDto) {
