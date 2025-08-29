@@ -38,12 +38,14 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @ResponseBody
 @CrossOrigin("*")
+@Tag(name = "Todo list API", description = "투두 아이템 관리 기능 제공")
 public class TodoItemController {
     private static final Logger logger = LoggerFactory.getLogger(TodoItemController.class);
 
     @Autowired
     private TodoItemService todoItemService;
 
+    @Operation(summary = "투두 아이템 목록 조회", description = "조건에 따라 투두 아이템 목록을 조회합니다.")
     @GetMapping("/selectList")
     public ResponseEntity<?> selectList(
         HttpServletRequest request,
