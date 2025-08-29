@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "투두 아이템 정보 DTO")
 @Alias("TodoItemDto")
 public class TodoItemDto {
 	private List<Long> seqList;
+    @Schema(description = "투두 아이템 고유 번호", example = "1")
 	private Long seq;
 	private String title;
 	private String content;

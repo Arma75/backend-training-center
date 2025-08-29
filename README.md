@@ -17,3 +17,6 @@ This is a repository for training the backend
 - 수정
 - 다건 삭제
 - 단건 삭제
+
+# Swagger UI
+http://localhost:8080/swagger-ui/index.html
