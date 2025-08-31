@@ -20,3 +20,19 @@ This is a repository for training the backend
 
 # Swagger UI
 http://localhost:8080/swagger-ui/index.html
+
+# to do
+- JUnit 도입하여 테스트 코드 작성 후 테스트 진행
+- Swagger UI를 통해 API 명세서 작성
+```
+@Tag(name = "Todo list API", description = "투두 아이템 관리")
+public class TodoItemController
+
+@Operation(summary = "투두 아이템 삭제", description = "투두 아이템 정보들을 삭제합니다.")
+@Parameters({
+    @Parameter(name = "seq", description = "(단건 삭제인 경우) 삭제할 투두 아이템의 seq 값", example = "1"),
+    @Parameter(name = "seqList", description = "(다건 삭제인 경우) 삭제할 투두 아이템들의 seq 값 리스트", example = "[1, 2]")
+})
+@PostMapping("/delete")
+public ResponseEntity<String> deleteTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto)
+```
