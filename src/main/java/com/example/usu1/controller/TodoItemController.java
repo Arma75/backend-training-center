@@ -86,6 +86,9 @@ public class TodoItemController {
     }
 
     @Operation(summary = "투두 아이템 상세 조회", description = "seq 값에 따른 투두 아이템 상세 정보를 조회합니다.")
+    @Parameters({
+        @Parameter(name = "seq", description = "상세 조회할 투두 아이템의 seq 값", example = "1"),
+    })
     @GetMapping("/view")
     public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestParam Long seq) {
         TodoItemDto todoItemDto = new TodoItemDto();
