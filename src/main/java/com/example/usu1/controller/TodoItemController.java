@@ -38,12 +38,14 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @ResponseBody
 @CrossOrigin("*")
+@Tag(name = "Todo list API", description = "투두 아이템 관리")
 public class TodoItemController {
     private static final Logger logger = LoggerFactory.getLogger(TodoItemController.class);
 
     @Autowired
     private TodoItemService todoItemService;
 
+    @Operation(summary = "투두 아이템 목록 조회", description = "조건에 따라 투두 아이템 목록을 조회합니다.")
     @GetMapping("/selectList")
     public ResponseEntity<?> selectList(
         HttpServletRequest request,
@@ -81,6 +83,7 @@ public class TodoItemController {
         }
     }
 
+    @Operation(summary = "투두 아이템 상세 조회", description = "seq 값에 따른 투두 아이템 상세 정보를 조회합니다.")
     @GetMapping("/view")
     public ResponseEntity<TodoItemDto> selectTodoItem(HttpServletRequest request, @RequestParam Long seq) {
         TodoItemDto todoItemDto = new TodoItemDto();
@@ -89,6 +92,7 @@ public class TodoItemController {
         return new ResponseEntity<>(todoItemService.selectTodoItem(todoItemDto), HttpStatus.OK);
     }
 
+    @Operation(summary = "투두 아이템 삭제", description = "투두 아이템 정보들을 삭제합니다.")
     @PostMapping("/delete")
     public ResponseEntity<String> deleteTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
@@ -112,6 +116,7 @@ public class TodoItemController {
         }
     }
 
+    @Operation(summary = "투두 아이템 추가", description = "투두 아이템 정보를 신규 추가합니다.")
     @PostMapping("/insert")
     public ResponseEntity<String> addTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
@@ -142,6 +147,7 @@ public class TodoItemController {
         }
     }
 
+    @Operation(summary = "투두 아이템 수정", description = "투두 아이템 정보들을 수정합니다.")
     @PostMapping("/update")
     public ResponseEntity<String> updateTodoItem(HttpServletRequest request, @RequestBody List<TodoItemDto> todoItemDtoList) {
         String clientIp = request.getRemoteAddr();
