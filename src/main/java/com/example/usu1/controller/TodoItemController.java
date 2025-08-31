@@ -165,7 +165,8 @@ public class TodoItemController {
             if( todoItemDto.getSeq() == null ) {
                 return new ResponseEntity<>("Seq 값은 필수입니다.", HttpStatus.BAD_REQUEST);
             }
-            if( todoItemDto.getTitle() == null && todoItemDto.getTitle().trim().isEmpty() ) {
+            // 필수값 검사
+            if( todoItemDto.getTitle() == null || todoItemDto.getTitle().trim().isEmpty() ) {
                 return new ResponseEntity<>("제목은 필수 입력 항목입니다.", HttpStatus.BAD_REQUEST);
             }
 
