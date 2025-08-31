@@ -30,6 +30,8 @@ import com.example.usu1.mapper.TodoItemMapper;
 import com.example.usu1.service.TodoItemService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -93,6 +95,10 @@ public class TodoItemController {
     }
 
     @Operation(summary = "투두 아이템 삭제", description = "투두 아이템 정보들을 삭제합니다.")
+    @Parameters({
+        @Parameter(name = "seq", description = "(단건 삭제인 경우) 삭제할 투두 아이템의 seq 값", example = "1"),
+        @Parameter(name = "seqList", description = "(다건 삭제인 경우) 삭제할 투두 아이템들의 seq 값 리스트", example = "[1, 2]")
+    })
     @PostMapping("/delete")
     public ResponseEntity<String> deleteTodoItem(HttpServletRequest request, @RequestBody TodoItemDto todoItemDto) {
         String clientIp = request.getRemoteAddr();
